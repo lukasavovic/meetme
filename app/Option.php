@@ -1,17 +1,17 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
-    protected $fillable = ['title', 'vote', 'poll_id'];
+     protected $fillable = ['title', 'vote', 'poll_id'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function polls()
+public function poll()
     {
-        return $this->belongsTo(App\Poll::class);
+        return $this->belongsTo(Poll::class);
     }
+
+
 }

@@ -1,80 +1,48 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @include('partials/__head')
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/sr_RS/sdk.js#xfbml=1&version=v3.2&appId=360091758047624&autoLogAppEvents=1"></script>
+  <div id="wrapper">
+<!-- @include('partials/__hidden-top') -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+@include('partials/__navbar')
 
-                    </ul>
+<!-- @include('partials/__messages') -->
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+@yield('content')
+<!-- @include('partials/__footer') -->
+  </div>
+  <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
+  <!-- javascript
+    ================================================== -->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  <script src="{{ asset('js/jquery.js') }}"></script>
+  <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+  <script src="{{ asset('js/jcarousel/jquery.jcarousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.fancybox.pack.js') }}"></script>
+  <script src="{{ asset('js/jquery.fancybox-media.js') }}"></script>
+  <script src="{{ asset('js/google-code-prettify/prettify.js') }}"></script>
+  <script src="{{ asset('js/portfolio/jquery.quicksand.js') }}"></script>
+  <script src="{{ asset('js/portfolio/setting.js') }}"></script>
+  <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+  <script src="{{ asset('js/jquery.nivo.slider.js') }}"></script>
+  <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+  <script src="{{ asset('js/jquery.ba-cond.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.slitslider.js') }}"></script>
+  <script src="{{ asset('js/animate.js') }}"></script>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+  <!-- Template Custom JavaScript File -->
+  <script src="{{ asset('js/custom.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="{{ asset('js/share.js') }}"></script>
+
 </body>
 </html>

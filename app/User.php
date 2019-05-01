@@ -37,8 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function polls()
-    {
-        return $this->belongsTo(App\Poll::class);
+
+
+
+
+    public function polls()     {
+         return $this->hasMany('App\Poll');
     }
+
+
+
+
+
 }

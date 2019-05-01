@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Poll;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $active_polls = Poll::where('open' , 1 )->paginate(10);
+
+        return view('pages/welcome')->with(compact('active_polls'));
     }
 }

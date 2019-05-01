@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UserSeeder::class);
-         $this->call(PollsSeeder::class);
-         $this->call(OptionsSeeder::class);
+
+
+  
+    $polls =  factory('App\Poll' , 55) -> create();
+    $options =  factory('App\Option' , 100) -> create();
+    $users =  factory('App\User' , 200) -> create();
+
     }
 }
